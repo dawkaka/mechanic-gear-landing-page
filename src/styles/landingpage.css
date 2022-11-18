@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 54px;
     --primary-color: #EF6820;
+    font-family: 'Outfit';
 }
 
 .landing_header {
