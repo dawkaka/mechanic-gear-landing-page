@@ -297,6 +297,25 @@
     border-radius: 24px;
 }
 
+.landing_ill_container h3 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: -0.025em;
+    font-feature-settings: 'tnum' on, 'lnum' on;
+    color: #161518;
+}
+
+.landing_ill_container p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    font-feature-settings: 'tnum' on, 'lnum' on, 'liga' off;
+    color: #565560;
+}
+
 #landing_download_app {
     width: 100%;
     display: flex;
