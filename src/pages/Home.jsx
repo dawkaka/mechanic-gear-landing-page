@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import PopularLocation from '../components/PopularLocation';
 import '../styles/landingpage.css';
 
 export default function Home() {
@@ -16,9 +18,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div
-      id="home"
-    >
+    <div id="home">
       <main className="landing_main">
         <header className="landing_header">
           <div className="landing_width_control_wrapper">
@@ -28,14 +28,14 @@ export default function Home() {
                   <img src="/landing-page/outline.svg" alt="" />
                   <p>clear</p>
                 </div>
-                <h1 className="landing_header_message">Expect rain and scattered thunderstorms by 12:00pm.</h1>
+                <h1 className="landing_header_message">
+                  Expect rain and scattered thunderstorms by 12:00pm.
+                </h1>
                 <div className="landing_warning">
                   <img src="/landing-page/Icon.svg" alt="" />
                   <p>There is a high risk of flooding in your area</p>
                 </div>
-                <button type="button">
-                  View more
-                </button>
+                <Link to="/dashboard">View more</Link>
               </div>
             </div>
           </div>
@@ -56,20 +56,48 @@ export default function Home() {
                 <h3 className="landing_header_md">Popular locations</h3>
                 <h6>upated a minute ago</h6>
               </div>
-              <div>
-                <div ref={slider} className="landing_locations_container">
-                  <PopularLocation />
-                  <PopularLocation />
-                  <PopularLocation />
+              <p>Weather reports of some popular locations in Nigeria</p>
+              <div ref={slider} className="landing_locations_container">
+                <PopularLocation
+                  forecast="Expect rain and scattered thunderstorms by 12:00pm."
+                  state="CLOUDY"
+                  location="Port Harcourt, Nigeria"
+                />
+                <PopularLocation
+                  forecast="Expect Cloudy skies all through the Day."
+                  state="CLOUDY"
+                  location="Lagos, Nigeria"
+                />
+                <PopularLocation
+                  forecast="Expect warm Sun and light drizzle through the night."
+                  state="RAINY"
+                  location="Kaduna, Nigeria"
+                />
+              </div>
+              <div className="landing_scroll_indicator">
+                <div
+                  style={{
+                    backgroundColor: curr === 0 ? 'var(--primary-color)' : '',
+                  }}
+                >
+                  {' '}
                 </div>
-                <div className="landing_scroll_indicator">
-                  <div style={{ backgroundColor: curr === 0 ? 'var(--primary-color)' : '' }}>{' '}</div>
-                  <div style={{ backgroundColor: curr === 1 ? 'var(--primary-color)' : '' }}>{' '}</div>
-                  <div style={{ backgroundColor: curr === 2 ? 'var(--primary-color)' : '' }}>{' '}</div>
+                <div
+                  style={{
+                    backgroundColor: curr === 1 ? 'var(--primary-color)' : '',
+                  }}
+                >
+                  {' '}
+                </div>
+                <div
+                  style={{
+                    backgroundColor: curr === 2 ? 'var(--primary-color)' : '',
+                  }}
+                >
+                  {' '}
                 </div>
               </div>
             </section>
-
             <section
               id="landing_features_and_globe"
               style={{
@@ -86,10 +114,10 @@ export default function Home() {
                       Never Worry about Figures and Statistics
                     </h3>
                     <p>
-                      Weathery analyses them for you to give you
-                      a self explanatory forecast so you never
-                      have to worry about the weather and you can
-                      have a more seamless experience
+                      Weathery analyzes the weather for you in order to provide
+                      you with a self-explanatory forecast, so you never have to
+                      worry about the weather and can have a more smooth
+                      experience.
                     </p>
                   </div>
                   <div
@@ -98,18 +126,18 @@ export default function Home() {
                       '--ill-bg': '#D1FADF',
                     }}
                   >
-                    <h5>Features</h5>
-                    <h3>Add  Multiple Locations</h3>
+                    <p>Features</p>
+                    <h3>Add multiple locations</h3>
                     <p>
-                      What’s even better than not having to worry about the
-                      weather in your current location?
-                      Being up to date about the weather condition in
-                      other Locations is what! Add and delete multiple
-                      locations to plan your daily movement effectively
+                      What could possibly be better than not having to worry
+                      about the weather where you are right now? What matters is
+                      staying informed about the weather in other places! In
+                      order to successfully arrange your daily movement, add and
+                      delete several destinations. Use weathery app now!
                     </p>
-                    <button type="button" className="landing_link_button">
+                    <Link to="/signup" className="landing_link_button">
                       Get started
-                    </button>
+                    </Link>
                     <div style={{ width: '100%', paddingTop: '24px' }}>
                       <img
                         src="/landing-page/globe.png"
@@ -129,17 +157,18 @@ export default function Home() {
                       '--ill-bg': '#FEF2F2',
                     }}
                   >
-                    <h5>Features</h5>
-                    <h3>Get the Forecast for your city!</h3>
+                    <p>Features</p>
+                    <h3>Find out your city&apos;s forecast!</h3>
                     <p>
-                      Would you like to know how the weather would be in thee next few
-                      hours or even through out the day! Weathery offers seamless and
-                      understandable features that communicates the daily weather status
-                      of its Users free of Costs!
+                      Are you curious to discover the weather predictions for
+                      the upcoming few or even the entire day? You don&apos;t
+                      have to pay for the straightforward, uncomplicated
+                      capabilities that Weathery offers to convey your everyday
+                      weather condition!
                     </p>
-                    <button type="button" className="landing_link_button">
+                    <Link to="/signup" className="landing_link_button">
                       Get started
-                    </button>
+                    </Link>
                     <div style={{ width: '100%', paddingTop: '24px' }}>
                       <img
                         src="/landing-page/fall.png"
@@ -160,8 +189,8 @@ export default function Home() {
                 <h6>Go Mobile</h6>
                 <h3 className="landing_header_md">Use the free Weathery app</h3>
                 <p>
-                  Explore the flexibility and ease that comes with using
-                  our Weatherly app on the go!
+                  Explore the flexibility and ease that comes with using our
+                  Weatherly app on the go!
                 </p>
                 <div>
                   <img src="/landing-page/appstore.png" alt="" />
@@ -176,32 +205,10 @@ export default function Home() {
                   <img src="/landing-page/phones.png" alt="" />
                 </div>
               </div>
-
             </section>
           </div>
         </div>
-
       </main>
     </div>
-  );
-}
-
-function PopularLocation() {
-  return (
-    <article className="landing_location_brief">
-      <div className="landing_location_brief_header">
-        <img src="/landing-page/Icon (1).svg" alt="" />
-        <h3>Port Harcourt, Nigeria</h3>
-      </div>
-      <div className="landing_location_body">
-        <h5>SUNNY</h5>
-        <p>
-          Expect rain and scattered thunderstorms by 12:00pm.
-        </p>
-        <button type="button" className="landing_link_button">
-          View more info →
-        </button>
-      </div>
-    </article>
   );
 }
